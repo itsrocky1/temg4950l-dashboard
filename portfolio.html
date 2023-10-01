@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Portfolio</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <!-- Datatable CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+</head>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar bg-dark border-bottom border-body navbar-expand" data-bs-theme="dark">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#">TEMG Crypto</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a class="nav-link text-light" href="index.html">Pricing History</a>
+            <a class="nav-link text-light active" href="portfolio.html">My Portfolio</a>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <body>
+    <h1 class="display-6 text-center m-5">My Portfolio</h1>
+
+    <!-- Form for Adding Transactions -->
+    <div class="container-sm mt-5">
+        <h4>Transaction Entry</h4>
+    </div>
+    <div class="card text-bg-light mb-3 container-sm">
+        <div class="card-body p-4">
+        <form>
+            <div class="row">
+                <!-- Choose between buy/sell -->
+                <div class="col-2" id="operationRadioGroup">
+                    <label for="flexRadioDefault1" class="form-label">Operation</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" value="Buy" checked>Buy</input>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" value="Sell">Sell</input>
+                    </div>
+                </div>
+
+                <!-- Enter transaction date -->
+                <div class="col">
+                    <label for="transactionDate" class="form-label">Transaction Date</label>
+                    <input type="text" class="form-control" id="transactionDate" placeholder="yyyymmdd">
+                </div>
+
+                <!-- Select Cryptocurrency -->
+                <div class="col">
+                    <label for="selectCurrency" class="form-label">Cryptocurrency</label>
+                    <select class="form-select" id="selectCurrency">
+                        <option selected value="Aave">Aave</option>
+                        <option value="BinanceCoin">BinanceCoin</option>
+                        <option value="Bitcoin">Bitcoin</option>
+                        <option value="Cardano">Cardano</option>
+                        <option value="ChainLink">ChainLink</option>
+                        <option value="Cosmos">Cosmos</option>
+                        <option value="CryptocomCoin">CryptocomCoin</option>
+                        <option value="Dogecoin">Dogecoin</option>
+                        <option value="EOS">EOS</option>
+                        <option value="Ethereum">Ethereum</option>
+                        <option value="Iota">Iota</option>
+                        <option value="Litecoin">Litecoin</option>
+                        <option value="Monero">Monero</option>
+                        <option value="NEM">NEM</option>
+                        <option value="Polkadot">Polkadot</option>
+                        <option value="Solana">Solana</option>
+                        <option value="Stellar">Stellar</option>
+                        <option value="Tether">Tether</option>
+                        <option value="Tron">Tron</option>
+                        <option value="Uniswap">Uniswap</option>
+                        <option value="USDCoin">USDCoin</option>
+                        <option value="WrappedBitcoin">WrappedBitcoin</option>
+                        <option value="XRP">XRP</option>
+                    </select>
+                </div>
+
+                <!-- Enter transaction amount -->
+                <div class="col">
+                    <label for="amount" class="form-label">Amount</label>
+                    <input type="text" class="form-control" id="amount" placeholder="69">
+                </div>
+            </div>
+
+            <!-- Form Submission Button -->
+            <div class="text-center">
+                <button type="button" class="btn btn-primary m-2 btn-dark" id="addTxn">Add Transaction</button>
+            </div>
+        </form>
+        
+        </div>
+    </div>
+
+    <!-- Datatable for Displaying Historical Transactions -->
+    <div class="container-sm mt-5">
+        <h4>Historical Transactions</h4>
+    </div>
+    <div class="container-sm">
+        <table id="table" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col">Operation</th>
+                    <th scope="col">Transaction Date</th>
+                    <th scope="col">Cryptocurrency</th>
+                    <th scope="col">Amount</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <!-- Button for Clearing Transaction History -->
+    <div class="text-center mb-5">
+        <button type="button" class="btn btn-primary m-2 btn-dark" id="clearTxn">Clear Transaction History</button>
+        <br><br><br>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <!-- Datatables JS -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- Custom JS for Dynamic Datatable -->
+    <script src="static/datatable.js"></script>
+
+</body>
+
+    <footer class="footer mt-5 py-3 bg-dark fixed-bottom">
+        <div class="container text-center">
+        <span class="text-light">Designed with ❤️ by Rocky for TEMG4950L</span>
+        </div>
+    </footer>
+</html>
